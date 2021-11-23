@@ -8,7 +8,9 @@ use App\Models\User ;
 use App\Models\mainmachine;
 use App\Models\submachine ; 
 use App\Models\product ;
-
+use DeepCopy\Filter\ReplaceFilter;
+use Illuminate\Support\Facades\DB ;
+use Illuminate\Support\Facades\Mail ;
 
 class userProductController extends Controller
 {
@@ -19,6 +21,12 @@ class userProductController extends Controller
         $submachineData = submachine::all()->where('sub_machine_status',"active") ;
         $quantityData = range(1,50) ;
         return view('users_dashboard.products.add_products' , compact(['userData' , 'mainmachineData' , 'submachineData' , 'quantityData'])) ;
+    }
+
+    //ajex request for sub machine here
+    public function GetSubCatAgainstMainCatEdit( Request $request, $id) {
+        $ns = urldecode($id) ;
+        echo json_encode(DB::table('submachines')->where('main_machine_name' , $id)->get()) ;        
     }
 
     //storing data
@@ -33,12 +41,24 @@ class userProductController extends Controller
         $productData->phone_number = $request->phone_number ;
         $productData->product_message = $request->product_message ;
         $productData->save() ;
+
+        //sending mail functionality here
+        $data = ['data'=>"You have recived a new request from" , 'name'=> $request->Product_username , 'phonenumber'=>$request->phone_number , 'mainmachine'=>$request->product_main_machine , 'submachine'=>$request->product_sub_machine , 'qunatity'=>$request->product_quantity  ] ;
+        $user['to']='memebazzzar@gmail.com' ;
+
+        Mail::send('mails.assignproductrequestmail', $data, function ($messages) use ($user) {
+            $messages->to($user['to']) ;
+            $messages->subject("New machine or model request") ;
+        });
+        //mail end here
+
         $notification = array(
             'message' => 'Your Product Request Sent Successfully',
             'alert-type' => 'success'
         ) ;
         return redirect()->route('userproducts.view')->with($notification) ;
     }
+    
 
     //view of the user product requests
     public function userProductRequestView() {

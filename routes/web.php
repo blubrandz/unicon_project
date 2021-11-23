@@ -358,6 +358,10 @@ Route::prefix('userproducts')->group( function() {
     //Adding Request for the products
     Route::get('/addrequest' , [userProductController::class , 'userProductRequestAdd'])->name('userproducts.addrequest') ;
 
+    //submachine route using ajex request here
+    Route::get('/GetSubCatAgainstMainCatEdit/{id}' , [userProductController::class , 'GetSubCatAgainstMainCatEdit'])->name('userproducts.GetSubCatAgainstMainCatEdit') ;
+
+
     //posting data for request
     Route::post('/store' , [userProductController::class , 'userProductRequestStore'])->name('userproducts.store') ;
 
