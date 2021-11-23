@@ -14,6 +14,7 @@ use App\Models\product;
 use Illuminate\Support\Facades\DB ;
 use App\Models\assignproduct ;
 use App\Models\insuranceclaim ;
+use Illuminate\Support\Facades\Mail ;
 
 class myProductsController extends Controller
 {
@@ -85,8 +86,27 @@ class myProductsController extends Controller
                         $claimData->claimvideos = implode('|' , $claimvideos) ;
                     }
                 } //video upload end here
-        
         $claimData->save() ;
+
+        //sending mail functionality here
+        $data = [ 'name'=> $request->username ,
+         'phonenumber'=>$request->userphonenumber2 ,
+         'company'=>$request->company_name ,
+         'claimachine'=>$request->mainmachine ,
+         'claimsubmachine'=>$request->submachine ,
+         'claimserialno'=>$request->serialnumber , 
+         'claimemail' => $request->useremail ,
+         'claimwarantyfrom'=>$request->warranty_from ,
+         'claimwarantyto' =>$request->warranty_to ,
+         'claimmessage' => $request->message ] ;
+        $user['to']='memebazzzar@gmail.com' ;
+
+        Mail::send('mails.claimrequestmail', $data, function ($messages) use ($user) {
+            $messages->to($user['to']) ;
+            $messages->subject("New machine or model request") ;
+        });
+        //mail end here
+
         $notification = array(
             'message' => 'Your Request for Claim is Successfully',
             'alert-type' => 'success'
