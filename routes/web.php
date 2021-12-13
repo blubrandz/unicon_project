@@ -26,6 +26,7 @@ use App\Models\assignproduct ;
 use App\Http\Controllers\insurancRequestController ;
 use App\Models\proforma ;
 Use App\Http\Controllers\userPerformaInvoiceController ;
+use App\Http\Controllers\website\websitecontroller ;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -427,4 +428,11 @@ Route::prefix('myproduct')->group( function() {
 //************************************************************ *//
 ////////////////UNICORN WEBSITE ROUTING//////////////////////////
 //********************************************************* *//
+//navbar dara
+$data = mainmachine::all() ;
+//home
+Route::get('/home' , [websitecontroller::class , 'unicornWebsiteHome'])->name('home') ;
+
+//about
+Route::get('/about' , [websitecontroller::class , 'unicornWebsiteAbout'])->name('about') ;
 
