@@ -17,7 +17,7 @@
 					<i class="nav-link-icon mdi mdi-crop-free"></i>
 			    </a>
 			</li>			
-			{{-- <li class="btn-group nav-item d-none d-xl-inline-block">
+			<li class="btn-group nav-item d-none d-xl-inline-block">
 				<a href="#" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
 					<i class="ti-check-box"></i>
 			    </a>
@@ -26,14 +26,16 @@
 				<a href="calendar.html" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
 					<i class="ti-calendar"></i>
 			    </a>
-			</li> --}}
+			</li>
 		  </ul>
 	  </div>
 		
       <div class="navbar-custom-menu r-side">
         <ul class="nav navbar-nav">
 		  <!-- full Screen -->
-	      		
+		  <li class="btn-group nav-item d-none d-xl-inline-block mr-5">
+			<a href=" {{ route('home') }} " class="btn btn-rounded btn-success md-5 mt-3" style="float: right"> Visit Website </a>
+		</li>
 	
 
 		  @php

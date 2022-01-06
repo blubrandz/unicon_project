@@ -21,11 +21,7 @@ class websitecontroller extends Controller
     //home
     public function unicornWebsiteHome() {
         $data = mainmachine::all() ;
-        return view('website.index' , compact(['data'])) ;
+        return view('website.masterindex' , compact(['data'])) ;
     }
 
-    //about
-    public function unicornWebsiteAbout() {
-        return view('website.pages.about') ;
-    }
 }

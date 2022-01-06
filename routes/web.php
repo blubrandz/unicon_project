@@ -66,7 +66,9 @@ Route::get('redirects' , [AdminController::class , 'loginRedirects'])->middlewar
 
 //website first page load here
 Route::get('/', function () {
-    return view('auth.login');
+    // return view('auth.login');
+    $data = mainmachine::all() ;
+    return view('website.masterindex' , compact(['data'])) ;
 });
 
 
@@ -75,6 +77,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     // return view('dashboard');
     return view('admin.index' );
 })->name('dashboard')->middleware('admin');
+
+Route::get('login'  , [UserController::class , 'loginPageRoute'])->name('login') ;
+
 
 
 Route::get('dashboard' ,
@@ -432,7 +437,3 @@ Route::prefix('myproduct')->group( function() {
 $data = mainmachine::all() ;
 //home
 Route::get('/home' , [websitecontroller::class , 'unicornWebsiteHome'])->name('home') ;
-
-//about
-Route::get('/about' , [websitecontroller::class , 'unicornWebsiteAbout'])->name('about') ;
-

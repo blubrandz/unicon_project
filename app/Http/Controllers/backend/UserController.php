@@ -8,6 +8,10 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    public function loginPageRoute() {
+    return view('auth.login');
+}
+
     //user VIEW
     public function UserView() {
         $allData = User::all() ;
