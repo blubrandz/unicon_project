@@ -34,7 +34,7 @@
         <ul class="nav navbar-nav">
 		  <!-- full Screen -->
 		  <li class="btn-group nav-item d-none d-xl-inline-block mr-5">
-			<a href=" {{ route('home') }} " class="btn btn-rounded btn-success md-5 mt-3" style="float: right"> Visit Website </a>
+			<a href=" #" class="btn btn-rounded btn-success md-5 mt-3" style="float: right"> Visit Website </a>
 		</li>
 	
 

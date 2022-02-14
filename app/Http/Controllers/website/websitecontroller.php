@@ -15,13 +15,13 @@ use App\Models\product;
 use Illuminate\Support\Facades\DB ;
 use App\Models\assignproduct ;
 use App\Models\insuranceclaim ;
+use Illuminate\Support\Facades\View;
 
 class websitecontroller extends Controller
 {
-    //home
-    public function unicornWebsiteHome() {
-        $data = mainmachine::all() ;
-        return view('website.masterindex' , compact(['data'])) ;
-    }
-
+    //mainmachinelist
+    public function mainmachinelist() {
+        $data = mainmachine::latest()->get() ;
+        return view('website.mainmachine' , compact(['data'])) ;
+    } 
 }

@@ -27,8 +27,14 @@
 				<div class="row justify-content-center no-gutters">
 					<div class="col-lg-4 col-md-5 col-12">
 						<div class="content-top-agile p-10">
-							<h2 class="text-white">Get started with Us</h2>
-							<p class="text-white-50">Sign in to start your session</p>							
+							{{-- <h2 class="text-white">Get started with Us</h2>
+							<p class="text-white-50">Sign in to start your session</p> --}}
+							<div>
+								<a class="navbar-brand" href="/">
+									<img src="{{asset('frontend/images/white_logo.png')}}" width="150%" alt="Unicorn Logo">
+								</a>
+							</div>
+
 						</div>
 						<div class="p-30 rounded30 box-shadowed b-2 border-new b-dashed">
                             <x-jet-validation-errors class="mb-4" />

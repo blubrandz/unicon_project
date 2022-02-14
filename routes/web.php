@@ -67,8 +67,8 @@ Route::get('redirects' , [AdminController::class , 'loginRedirects'])->middlewar
 //website first page load here
 Route::get('/', function () {
     // return view('auth.login');
-    $data = mainmachine::all() ;
-    return view('website.masterindex' , compact(['data'])) ;
+    $data = mainmachine::all()->take(8) ;
+    return view('website.index' , compact(['data'])) ;
 });
 
 
@@ -418,6 +418,10 @@ Route::prefix('myproduct')->group( function() {
 
 
 
+//************************************************************ *//
+////////////////UNICORN WEBSITE ROUTING//////////////////////////
+//********************************************************* *//
+Route::get('mainmachine' , [websitecontroller::class , 'mainmachinelist'])->name('mainmachine') ;
 
 
 
@@ -429,11 +433,3 @@ Route::prefix('myproduct')->group( function() {
 }); //preventing backlogin here [clearing backhistory here don't delete it and also  make routes under this not out side this closing tags]
 
 
-
-//************************************************************ *//
-////////////////UNICORN WEBSITE ROUTING//////////////////////////
-//********************************************************* *//
-//navbar dara
-$data = mainmachine::all() ;
-//home
-Route::get('/home' , [websitecontroller::class , 'unicornWebsiteHome'])->name('home') ;
