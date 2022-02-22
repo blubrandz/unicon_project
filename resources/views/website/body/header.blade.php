@@ -27,7 +27,7 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                            <a class="nav-link active" aria-current="page" href="/">Home</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link active" aria-current="page" href="#">About</a>
@@ -51,7 +51,7 @@
                                                             <div class="row">
                                                                 <div class="col-md-6 d-grid">
                                                                     @foreach ($navbardata as $navdata)
-                                                                    <a href="#"> {{ $navdata->machine_name}} </a>  
+                                                                    <a href="{{ route('submachine',$navdata->id) }}"> {{ $navdata->machine_name}} </a>  
                                                                     @endforeach
                                                                 </div>
                                                                 
@@ -103,7 +103,7 @@
                             </div>
                             <div class="call-login-button d-flex">
                                 <button type="button" class="request-button"><a href="{{ route('login') }}">Login</a></button>
-                                <button type="button" class="request-button"><a href="http://unicorneequipment.blubrandzglobal.com/">Find a Dealer</a></button>
+                                <button type="button" class="request-button"><a href=" {{ route('findealer') }} ">Find a Dealer</a></button>
                             </div>
                         </div>
                     </nav>

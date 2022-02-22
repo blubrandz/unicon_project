@@ -40,7 +40,7 @@
                     <div class="col-md-3">
                         <div class="categoryimgbox mainmachineinner"><img class="img-thumbnail" src="{{ (!empty($item->machine_image))?url('upload/user_images/'.$item->machine_image):url('upload/no_image.jpg') }}" alt=""></div>
                         <div class="category_titleheading">
-                            <h3><a href=""> {{ $item->machine_name }} </a></h3>
+                            <h3><a href="{{ route('submachine',$item->id) }}"> {{ $item->machine_name }} </a></h3>
                         </div>
                     </div>    
                     @endforeach

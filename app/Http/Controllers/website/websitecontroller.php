@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB ;
 use App\Models\assignproduct ;
 use App\Models\insuranceclaim ;
 use Illuminate\Support\Facades\View;
+use App\Models\dealer ;
 
 class websitecontroller extends Controller
 {
@@ -24,4 +25,23 @@ class websitecontroller extends Controller
         $data = mainmachine::latest()->get() ;
         return view('website.mainmachine' , compact(['data'])) ;
     } 
+
+    //submachine
+    public function submachinelist($id) {
+        $idData = mainmachine::find($id) ;
+        $data = submachine::latest()->where('main_machine_name' , $idData->machine_name)->get() ;
+        return view('website.submachine' , compact(['data' , 'idData'])) ;
+    }
+
+    //submachinedetails
+    public function submachinedetails($id) {
+        $data = submachine::find($id) ;
+        return $data ;
+    }
+
+    //find a dealer 
+    public function findADealer() {
+        $data = dealer::all() ;
+        return view('website.findadealer' , compact(['data'])) ;
+    }
 }

@@ -27,6 +27,9 @@ use App\Http\Controllers\insurancRequestController ;
 use App\Models\proforma ;
 Use App\Http\Controllers\userPerformaInvoiceController ;
 use App\Http\Controllers\website\websitecontroller ;
+use App\Http\Controllers\ManageDealersController ;
+use App\Models\dealer;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -322,6 +325,17 @@ Route::prefix('claimrequest')->group( function() {
 
 }) ;
 
+//Mange Dealers 
+Route::prefix('dealers')->group( function() {
+    //Add dealer
+    Route::get('/add' , [ManageDealersController::class , 'AddManageDealers'])->name('dealers.add') ; 
+
+    //store dealer
+    Route::post('/store' , [ManageDealersController::class , 'StoreManageDealers'])->name('dealers.store') ; 
+
+    
+});
+
 
 //************************************************************ *//
 ////////////////USERS DASHBOARD ROUTING//////////////////////////
@@ -421,7 +435,19 @@ Route::prefix('myproduct')->group( function() {
 //************************************************************ *//
 ////////////////UNICORN WEBSITE ROUTING//////////////////////////
 //********************************************************* *//
+//main machine list
 Route::get('mainmachine' , [websitecontroller::class , 'mainmachinelist'])->name('mainmachine') ;
+
+//submachine
+Route::get('submachine/{id}' , [websitecontroller::class , 'submachinelist'])->name('submachine') ;
+
+//submachine details
+Route::get('submachinedetail/{id}' , [websitecontroller::class , 'submachinedetails'])->name('submachinedetail') ;
+
+//findealer
+Route::get('findealer' , [websitecontroller::class , 'findADealer'])->name('findealer') ;
+
+
 
 
 

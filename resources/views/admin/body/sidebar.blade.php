@@ -61,6 +61,19 @@
           </ul>
         </li>
 
+        <li class="treeview {{ ($prefix == '/dealers')?'active':'' }}">
+          <a href="#">
+            <i data-feather="message-circle"></i> <span>Manage Dealers</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href=" {{Route('dealers.add')}} "><i class="ti-more"></i>Add Dealers</a></li>
+            <li><a href=" {{Route('password.view')}} "><i class="ti-more"></i>View Dealers</a></li>
+          </ul>
+        </li>
+
         <!--main MAchine work here-->
         <li class="treeview {{ ($prefix == '/mainmachine')?'active':'' }}">
           <a href="#">
