@@ -29,6 +29,7 @@ Use App\Http\Controllers\userPerformaInvoiceController ;
 use App\Http\Controllers\website\websitecontroller ;
 use App\Http\Controllers\ManageDealersController ;
 use App\Models\dealer;
+use Illuminate\Support\Facades\Artisan ;
 
 /*
 |--------------------------------------------------------------------------
@@ -447,13 +448,23 @@ Route::get('submachinedetail/{id}' , [websitecontroller::class , 'submachinedeta
 //findealer
 Route::get('findealer' , [websitecontroller::class , 'findADealer'])->name('findealer') ;
 
+//about us page here aboutus
+Route::get('aboutus' , [websitecontroller::class , 'AboutUs'])->name('aboutus') ;
+
+//contact us page contact-us
+Route::get('contact-us' , [websitecontroller::class , 'ContactUs'])->name('contact-us') ;
+
+//Check if user is loged in or not loginpage
+Route::get('loginpage' , [websitecontroller::class , 'checkAuthentication'])->name('loginpage') ;
 
 
-
-
-
-
-
+//post project setup
+Route::get('/cache' , function() {
+    Artisan::Call('cache:clear') ;
+}) ;
+Route::get('/link' , function() {
+    Artisan::Call('storage:link') ;
+}) ;
 
 
 }); //preventing backlogin here [clearing backhistory here don't delete it and also  make routes under this not out side this closing tags]

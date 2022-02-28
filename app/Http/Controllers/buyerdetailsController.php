@@ -44,7 +44,7 @@ class buyerdetailsController extends Controller
                 $multi_image_full_name = $multi_image_name.'.'.$ext ;
                 $upload_path = 'upload/upload_invoice/' ;
                 $multi_image_url = $upload_path.$multi_image_full_name ;
-                $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                $multi_image_file->move(public_path('upload/upload_invoice/'),$multi_image_full_name)  ;
                 $upload_invoice[] = $multi_image_url ;
                 $invoiceData->upload_invoice = implode('|' , $upload_invoice) ;
             }
@@ -97,7 +97,7 @@ class buyerdetailsController extends Controller
                         $multi_image_full_name = $multi_image_name.'.'.$ext ;
                         $upload_path = 'upload/upload_invoice/' ;
                         $multi_image_url = $upload_path.$multi_image_full_name ;
-                        $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                        $multi_image_file->move(public_path('upload/upload_invoice/'),$multi_image_full_name)  ;
                         $upload_invoice[] = $multi_image_url ;
                         $invoiceupdatedata->upload_invoice = implode('|' , $upload_invoice) ;
                     }
@@ -237,7 +237,7 @@ class buyerdetailsController extends Controller
                 $multi_image_full_name = $multi_image_name.'.'.$ext ;
                 $upload_path = 'upload/upload_pro_forma/' ;
                 $multi_image_url = $upload_path.$multi_image_full_name ;
-                $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                $multi_image_file->move(public_path('upload/upload_pro_forma/'),$multi_image_full_name)  ;
                 $upload_invoice[] = $multi_image_url ;
                 $invoiceData->upload_invoice = implode('|' , $upload_invoice) ;
             }
@@ -284,7 +284,7 @@ class buyerdetailsController extends Controller
                         $multi_image_full_name = $multi_image_name.'.'.$ext ;
                         $upload_path = 'upload/upload_pro_forma/' ;
                         $multi_image_url = $upload_path.$multi_image_full_name ;
-                        $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                        $multi_image_file->move(public_path('upload/upload_pro_forma/'),$multi_image_full_name)  ;
                         $upload_invoice[] = $multi_image_url ;
                         $invoiceupdatedata->upload_invoice = implode('|' , $upload_invoice) ;
                     }

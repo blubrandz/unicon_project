@@ -25,7 +25,7 @@ class AdminMiddleware
             return redirect('userdashboard') ;
         }
         else {
-            return redirect('abc') ;
+            return redirect('/') ;
         }
     }
 }

@@ -17,6 +17,10 @@ use App\Models\assignproduct ;
 use App\Models\insuranceclaim ;
 use Illuminate\Support\Facades\View;
 use App\Models\dealer ;
+use Error;
+use Illuminate\Auth\Events\Failed;
+use phpDocumentor\Reflection\Types\Null_;
+use PHPUnit\Framework\Constraint\IsTrue;
 
 class websitecontroller extends Controller
 {
@@ -33,15 +37,61 @@ class websitecontroller extends Controller
         return view('website.submachine' , compact(['data' , 'idData'])) ;
     }
 
-    //submachinedetails
+    //submachinedetails submachinedetails
     public function submachinedetails($id) {
         $data = submachine::find($id) ;
-        return $data ;
+        return view('website.submachinedetails' , compact(['data' ])) ;
     }
 
     //find a dealer 
     public function findADealer() {
         $data = dealer::all() ;
         return view('website.findadealer' , compact(['data'])) ;
+    }
+
+    //about us page here
+    public function AboutUs() {
+        return view('website.aboutus' ) ;
+
+    }
+
+    //contact us page contactus
+    public function ContactUs() {
+        return view('website.contactus' ) ;
+    }
+
+    //checking the authentication here
+    public function checkAuthentication() {
+        // $id = Auth::user()->id ;
+        // $user = User::find($id) ;
+        // if($user->usertype == 'admin') {
+        //     return redirect()->route('dashboard') ;
+        // }
+        // else if($user->usertype == 'user') {
+        //     return redirect()->route('userdashboard') ;
+        // }
+        // else{
+        //     return redirect()->route('login') ;
+        // }
+        
+        if(Auth::user()->FALSE) {
+            return redirect()->route('login') ;
+        }
+        else{
+            $id = Auth::user()->id ;
+            $user = User::find($id) ;
+            if($user->usertype == 'admin') {
+                return redirect()->route('dashboard') ;
+            }
+            else if($user->usertype == 'user') {
+                return redirect()->route('userdashboard') ;
+            }
+            else{
+                return redirect()->route('login') ;
+            }
+        }
+
+        
+        
     }
 }

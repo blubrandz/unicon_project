@@ -30,7 +30,7 @@
                                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">About</a>
+                                            <a class="nav-link active" aria-current="page" href="{{route('aboutus')}}">About</a>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -95,14 +95,15 @@
 
                                         
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                                            <a class="nav-link active" aria-current="page" href=" {{ route('contact-us') }} ">Contact</a>
                                         </li>
 
                                     </ul>
                                 </div>
                             </div>
                             <div class="call-login-button d-flex">
-                                <button type="button" class="request-button"><a href="{{ route('login') }}">Login</a></button>
+                                {{-- <button type="button" class="request-button"><a href="{{ route('login') }}">Login</a></button> --}}
+                                <button type="button" class="request-button"><a href="{{ route('loginpage') }}">Login</a></button>
                                 <button type="button" class="request-button"><a href=" {{ route('findealer') }} ">Find a Dealer</a></button>
                             </div>
                         </div>

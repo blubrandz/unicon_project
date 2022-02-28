@@ -28,10 +28,13 @@
 			</li> --}}
 		  </ul>
 	  </div>
-		
+
       <div class="navbar-custom-menu r-side">
         <ul class="nav navbar-nav">
-		  	
+			<li class="btn-group nav-item d-none d-xl-inline-block mr-5">
+				<a href="/" class="btn btn-rounded btn-success md-5 mt-3" style="float: right"> Visit Website </a>
+			</li>
+	
 		  @php
 			  $user = DB::table('users')->where('id',Auth::user()->id)->first() ;
 		  @endphp

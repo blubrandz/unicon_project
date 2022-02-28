@@ -48,7 +48,7 @@ class assignProductController extends Controller
                         $upload_path = 'upload/assign_product/' ;
         
                         $multi_image_url = $upload_path.$multi_image_full_name ;
-                        $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                        $multi_image_file->move(public_path('upload/assign_product/'),$multi_image_full_name)  ;
                         $assign_images[] = $multi_image_url ;
                         $assignProductData->assign_images = implode('|' , $assign_images) ;
         
@@ -65,7 +65,7 @@ class assignProductController extends Controller
                         $upload_path = 'upload/assign_product/' ;
         
                         $multi_image_url = $upload_path.$multi_image_full_name ;
-                        $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                        $multi_image_file->move(public_path('upload/assign_product/'),$multi_image_full_name)  ;
                         $assign_videos[] = $multi_image_url ;
                         $assignProductData->assign_videos = implode('|' , $assign_videos) ;
         
@@ -140,7 +140,7 @@ class assignProductController extends Controller
                                 $upload_path = 'upload/assign_product/' ;
                 
                                 $multi_image_url = $upload_path.$multi_image_full_name ;
-                                $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                                $multi_image_file->move(public_path('upload/assign_product/'),$multi_image_full_name)  ;
                                 $assign_images[] = $multi_image_url ;
                                 $data->assign_images = implode('|' , $assign_images) ;
                 
@@ -157,7 +157,7 @@ class assignProductController extends Controller
                                 $upload_path = 'upload/assign_product/' ;
                 
                                 $multi_image_url = $upload_path.$multi_image_full_name ;
-                                $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                                $multi_image_file->move(public_path('upload/assign_product/'),$multi_image_full_name)  ;
                                 $assign_videos[] = $multi_image_url ;
                                 $data->assign_videos = implode('|' , $assign_videos) ;
                 

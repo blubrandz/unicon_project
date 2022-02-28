@@ -64,7 +64,7 @@ class myProductsController extends Controller
                 $upload_path = 'upload/insurance_gallary/' ;
 
                 $multi_image_url = $upload_path.$multi_image_full_name ;
-                $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                $multi_image_file->move(public_path('upload/insurance_gallary/'),$multi_image_full_name)  ;
                 $claimimages[] = $multi_image_url ;
                 $claimData->claimimages = implode('|' , $claimimages) ;
 
@@ -81,7 +81,7 @@ class myProductsController extends Controller
                         // $upload_path = 'public/multiple_image/' ;
                         $upload_path = 'upload/insurance_gallary/' ;
                         $multi_image_url = $upload_path.$multi_image_full_name ;
-                        $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                        $multi_image_file->move(public_path('upload/insurance_gallary/'),$multi_image_full_name)  ;
                         $claimvideos[] = $multi_image_url ;
                         $claimData->claimvideos = implode('|' , $claimvideos) ;
                     }

@@ -34,7 +34,7 @@ class subMachineController extends Controller
                 $upload_path = 'upload/sub_machine_img/' ;
 
                 $multi_image_url = $upload_path.$multi_image_full_name ;
-                $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                $multi_image_file->move(public_path('upload/sub_machine_img/'),$multi_image_full_name)  ;
                 $sub_machine_image[] = $multi_image_url ;
                 $dataDB->sub_machine_image = implode('|' , $sub_machine_image) ;
 
@@ -52,7 +52,7 @@ class subMachineController extends Controller
                 $upload_path = 'upload/sub_machine_videos/' ;
 
                 $multi_image_url = $upload_path.$multi_image_full_name ;
-                $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                $multi_image_file->move(public_path('upload/sub_machine_videos/'),$multi_image_full_name)  ;
                 $sub_machine_video[] = $multi_image_url ;
                 $dataDB->sub_machine_video = implode('|' , $sub_machine_video) ;
 
@@ -70,7 +70,7 @@ class subMachineController extends Controller
                 $upload_path = 'upload/sub_machine_brochure/' ;
 
                 $multi_image_url = $upload_path.$multi_image_full_name ;
-                $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                $multi_image_file->move(public_path('upload/sub_machine_brochure/'),$multi_image_full_name)  ;
                 $sub_machine_brochure[] = $multi_image_url ;
                 $dataDB->sub_machine_brochure = implode('|' , $sub_machine_brochure) ;
 
@@ -120,7 +120,7 @@ class subMachineController extends Controller
                         $upload_path = 'upload/sub_machine_img/' ;
         
                         $multi_image_url = $upload_path.$multi_image_full_name ;
-                        $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                        $multi_image_file->move(public_path('upload/sub_machine_img/'),$multi_image_full_name)  ;
                         $sub_machine_image[] = $multi_image_url ;
                         $editsubmachineData->sub_machine_image = implode('|' , $sub_machine_image) ;
         
@@ -138,7 +138,7 @@ class subMachineController extends Controller
                 $upload_path = 'upload/sub_machine_videos/' ;
 
                 $multi_image_url = $upload_path.$multi_image_full_name ;
-                $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                $multi_image_file->move(public_path('upload/sub_machine_videos/'),$multi_image_full_name)  ;
                 $sub_machine_video[] = $multi_image_url ;
                 $editsubmachineData->sub_machine_video = implode('|' , $sub_machine_video) ;
 
@@ -156,7 +156,7 @@ class subMachineController extends Controller
                 $upload_path = 'upload/sub_machine_brochure/' ;
 
                 $multi_image_url = $upload_path.$multi_image_full_name ;
-                $multi_image_file->move($upload_path,$multi_image_full_name)  ;
+                $multi_image_file->move(public_path('upload/sub_machine_brochure/'),$multi_image_full_name)  ;
                 $sub_machine_brochure[] = $multi_image_url ;
                 $editsubmachineData->sub_machine_brochure = implode('|' , $sub_machine_brochure) ;
 
