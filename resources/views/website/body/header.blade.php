@@ -49,13 +49,13 @@
                                                     <div class="row">
                                                         <div class="col-md-7 megamenulinks">
                                                             <div class="row">
-                                                                <div class="col-md-6 d-grid">
+                                                                <div class="col-md-12 d-grid">
                                                                     @foreach ($navbardata as $navdata)
                                                                     <a href="{{ route('submachine',$navdata->id) }}"> {{ $navdata->machine_name}} </a>  
                                                                     @endforeach
                                                                 </div>
                                                                 
-                                                                <div class="col-md-6 d-grid ">
+                                                                {{-- <div class="col-md-6 d-grid ">
                                                                     <a href="#">Link 1</a>
                                                                     <a href="#">Link 2</a>
                                                                     <a href="#">Link 3</a>
@@ -63,7 +63,7 @@
                                                                     <a href="#">Link 2</a>
                                                                     <a href="#">Link 3</a>
                                                                     
-                                                                </div>
+                                                                </div> --}}
                                                             </div>
                                                         </div>
                                                         <div class="col-md-5 productslist">
