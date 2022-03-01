@@ -102,8 +102,19 @@
                                 </div>
                             </div>
                             <div class="call-login-button d-flex">
-                                {{-- <button type="button" class="request-button"><a href="{{ route('login') }}">Login</a></button> --}}
-                                <button type="button" class="request-button"><a href="{{ route('loginpage') }}">Login</a></button>
+                                {{-- <button type="button" class="request-button"><a href="{{ route('loginpage') }}">Dashboard</a></button> --}}
+                                <button type="button" class="request-button"><a href="{{ route('loginpage') }}">
+                                    @php
+                                        if(!Auth::user()) {
+                                            echo "Login to Dashboard" ;
+                                        }
+                                        else{
+                                            $id = Auth::user()->name ;
+                                            echo "$id dashboard" ;
+                                        }
+                                    @endphp
+                                </a></button>
+
                                 <button type="button" class="request-button"><a href=" {{ route('findealer') }} ">Find a Dealer</a></button>
                             </div>
                         </div>

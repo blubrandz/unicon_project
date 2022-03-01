@@ -29,7 +29,7 @@
         <section class="sub_machines">
             <div class="container">
                 <div class="row d-flex align-items-center">
-                    <div class="col-md-4 wrapper_box">
+                    {{-- <div class="col-md-4 wrapper_box">
                         <div class="submachinebox">
                             <div class="imag">
                                 <img class="img-thumbnail" src="{{ (!empty($item->sub_machine_image))?url('upload/user_images/'.$item->sub_machine_image):url('upload/no_image.jpg') }}" alt="">
@@ -42,7 +42,7 @@
                                 <a href="#">Explore Models</a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
                     @foreach ($data as $item)

@@ -62,19 +62,9 @@ class websitecontroller extends Controller
 
     //checking the authentication here
     public function checkAuthentication() {
-        // $id = Auth::user()->id ;
-        // $user = User::find($id) ;
-        // if($user->usertype == 'admin') {
-        //     return redirect()->route('dashboard') ;
-        // }
-        // else if($user->usertype == 'user') {
-        //     return redirect()->route('userdashboard') ;
-        // }
-        // else{
-        //     return redirect()->route('login') ;
-        // }
         
-        if(Auth::user()->FALSE) {
+        
+        if(!Auth::user()) {
             return redirect()->route('login') ;
         }
         else{
@@ -90,8 +80,5 @@ class websitecontroller extends Controller
                 return redirect()->route('login') ;
             }
         }
-
-        
-        
     }
 }
